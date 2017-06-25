@@ -1,0 +1,18 @@
+doctype html
+html
+	head
+		title= title
+		script(type='text/javascript').
+			let pug = true
+			if (pug)
+				console.log("YEAH!")
+			else
+				console.log("NOOOOO!")
+	body
+		h1= message
+		.topic-component
+			h2 What's PUG?
+			p Pug is a high performance template engine heavily influenced by Haml and
+				implemented with JavaScript for Node.js and browsers. For bug reports, feature
+				requests and questions, open an issue. For discussion join the chat room.
+			a(href="https://github.com/pugjs/pug") GitHub

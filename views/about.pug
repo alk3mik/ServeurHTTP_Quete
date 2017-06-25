@@ -1,0 +1,18 @@
+doctype html
+html
+	head
+		title= title
+		script(type='text/javascript').
+			let pug = true
+			if (!pug)
+				console.log("YEAH!")
+			else
+				console.log("NOOOOO!")
+	body
+		h1= message
+		.topic-component
+			h2 But what's really a PUG?
+			p PUG is a dog of a dwarf breed like a bulldog with a broad flat
+				nose and deeply wrinkled face. See the below picture:
+				img(src='/public/assets/img/pugdog.jpg' alt='Pug pic')
+			a(href="https://www.wikiwand.com/en/Pug") Wikipedia

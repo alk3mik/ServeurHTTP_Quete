@@ -12,20 +12,23 @@ app.use(function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static('public')); // On distribue le dossier public
+// app.use(express.static('public')); // On distribue le dossier public
+
+// Set PUG as view engine 
+app.set('view engine', 'pug');
 
 // ~~~~~~~~~~~~~ ROUTING ~~~~~~~~~~~~~~~
 
 app.get('/', function(req, res) {
-	res.json({ message: 'hooray! welcome to Home page!' })
-	console.log("page d'accueil");
-    // console.log('GET Request at myRoute with Param : ', req.params.myParam);
+	// res.json({ message: 'hooray! welcome to Home page!' })
+	// console.log("page d'accueil");
+    res.render('home', { title: "A little PUG", message: "Page d'accueil" });
 });
 
 app.get('/about', function(req, res) {
-	res.json({ message: 'hooray! welcome to About page!' })
-	console.log("page a propos");
-    // console.log('GET Request at myRoute with Param : ', req.params.myParam);
+	// res.json({ message: 'hooray! welcome to About page!' })
+	// console.log("page a propos");
+    res.render('about', { title: "A little PUG", message: "Page à propos" });
 });
 
 // ~~~~~~~~~~~~ ROUTING END ~~~~~~~~~~~~~~~~~~~~
