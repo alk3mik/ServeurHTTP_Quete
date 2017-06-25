@@ -10,18 +10,27 @@ app.use(function(req, res, next) {
     next();
 });
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static('public')); // On distribue le dossier public
 
 // ~~~~~~~~~~~~~ ROUTING ~~~~~~~~~~~~~~~
 
-app.get('/myRoute/:myParam', function(req, res) {
-    console.log('GET Request at myRoute with Param : ', req.params.myParam);
+app.get('/', function(req, res) {
+	res.json({ message: 'hooray! welcome to Home page!' })
+	console.log("page d'accueil");
+    // console.log('GET Request at myRoute with Param : ', req.params.myParam);
+});
+
+app.get('/about', function(req, res) {
+	res.json({ message: 'hooray! welcome to About page!' })
+	console.log("page a propos");
+    // console.log('GET Request at myRoute with Param : ', req.params.myParam);
 });
 
 // ~~~~~~~~~~~~ ROUTING END ~~~~~~~~~~~~~~~~~~~~
 
-let server = app.listen(9000, '127.0.0.1', function() {
+let server = app.listen(3000, '127.0.0.1', function() {
     let serverInfo = server.address();
     console.log(('\n\tServer started on http://' + serverInfo.address + ':' + serverInfo.port));
     console.log('Ready to Roll !'.america);
